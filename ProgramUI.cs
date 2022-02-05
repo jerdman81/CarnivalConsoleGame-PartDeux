@@ -12,7 +12,7 @@ namespace CarnivalConsoleGame
     {
         int tickets = 100;
         int money = 0; // Use in a later iteration
-        int time = 120;
+        int time = 5;
         int funScore = 0;
 
         private readonly Dictionary<string, CarnivalGames> Games = new Dictionary<string, CarnivalGames>
@@ -51,7 +51,6 @@ namespace CarnivalConsoleGame
                 Console.WriteLine(currentGame.Splash);
                 Console.WriteLine("\nType in below what you want to do: ");
                 string command = Console.ReadLine().ToLower();
-
                 if (command.StartsWith("go"))
                 {
                     bool foundExit = false;
@@ -62,6 +61,9 @@ namespace CarnivalConsoleGame
                         {
                             currentGame = ((Dictionary<string,CarnivalGames>) Games)[exit];
                             foundExit = true;
+                            time--;
+                            if (time == 0)
+                                hasTime = false;
                             break;
                         }
                     }
