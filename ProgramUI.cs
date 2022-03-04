@@ -95,9 +95,9 @@ namespace CarnivalConsoleGame
                 {
                     Console.Clear();
                     Console.WriteLine("\nAre you sure you want to EXIT? (Y/N):");
-                    Console.ReadKey();
+                    //Console.ReadKey();
                     string confirm = Console.ReadLine().ToLower();
-                    if (confirm == "y")
+                    if (confirm.Equals("y"))
                     {
                         ExitApplication();
                     }
